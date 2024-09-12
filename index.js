@@ -15,6 +15,11 @@
  */
 function logNames(items) {
   // TODO: use `forEach`
+  const names = [];
+  items.forEach((item) => {
+    names.push(item.name);
+  });
+  return names;
 }
 
 /**
@@ -81,7 +86,7 @@ const INVENTORY = [
   { id: 8, name: "sourdough", price: 5.5, category: "grains", quantity: 81 },
 ];
 
-console.log("Welcome! We carry the following items:");
+console.log("Welcome! We carry the following items:", logNames(INVENTORY));
 logNames(INVENTORY);
 
 console.log("Here are the names again in all uppercase:");
