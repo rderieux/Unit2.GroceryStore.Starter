@@ -28,6 +28,20 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  /*
+  const uppercaseNames = [];
+  return items.map((item) => {
+    return item.name.toUpperCase();
+  });
+  */
+  const uppercaseNames = [];
+  for (let i = 0; i < items.length; i++) {
+    //push to new array
+    uppercaseNames.push(items[i].name.toUpperCase());
+  }
+  return uppercaseNames.map((name) => {
+    return name;
+  });
 }
 
 /**
