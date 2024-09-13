@@ -15,6 +15,11 @@
  */
 function logNames(items) {
   // TODO: use `forEach`
+  const names = [];
+  items.forEach((item) => {
+    names.push(item.name);
+  });
+  return names;
 }
 
 /**
@@ -23,6 +28,20 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  /*
+  const uppercaseNames = [];
+  return items.map((item) => {
+    return item.name.toUpperCase();
+  });
+  */
+  const uppercaseNames = [];
+  for (let i = 0; i < items.length; i++) {
+    //push to new array
+    uppercaseNames.push(items[i].name.toUpperCase());
+  }
+  return uppercaseNames.map((name) => {
+    return name;
+  });
 }
 
 /**
@@ -32,6 +51,7 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
+  return items.find((item) => item.id === id);
 }
 
 /**
@@ -41,6 +61,11 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  for (const item of items) {
+    if (item.name === name) {
+      return item.price;
+    }
+  }
 }
 
 /**
@@ -50,6 +75,7 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  return items.filter((item) => item.category === category);
 }
 
 /**
@@ -58,6 +84,7 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  return items.reduce((item, currentValue) => item + currentValue.quantity, 0);
 }
 
 /**
@@ -66,6 +93,10 @@ function countItems(items) {
  */
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
+  return (
+    items.reduce((item, currentValue) => item + currentValue.price, 0) *
+    countItems(items)
+  );
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
@@ -81,7 +112,7 @@ const INVENTORY = [
   { id: 8, name: "sourdough", price: 5.5, category: "grains", quantity: 81 },
 ];
 
-console.log("Welcome! We carry the following items:");
+console.log("Welcome! We carry the following items:", logNames(INVENTORY));
 logNames(INVENTORY);
 
 console.log("Here are the names again in all uppercase:");
