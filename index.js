@@ -93,9 +93,10 @@ function countItems(items) {
  */
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
-  return (
-    items.reduce((item, currentValue) => item + currentValue.price, 0) *
-    countItems(items)
+
+  return items.reduce(
+    (totalPrice, item) => totalPrice + item.quantity * item.price,
+    0
   );
 }
 
